@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block search_bar %}
+
+{% endblock search_bar %}
+
+{% block content %}
+
+<div class="column is-4 is-offset-4">
+  <form action="{% url 'property_edit' property.pk %}" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+          <h4 class="title has-text-grey">Edit Property Details</h4>
+          {{ propertyForm|crispy }}
+          {{ formset.management_form }}
+          {% for form in formset %}
+            {{ form|crispy }}
+          {% endfor %}
+    <input type="submit" name="submit" value="Submit" />
+</form>
+</div>
+
+<script>
+  $(function() {
+    $( "#id_available_date" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "1900:2012",
+      // You can put more options here.
+
+    });
+  });
+  </script>
+
+{% endblock content %}

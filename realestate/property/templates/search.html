@@ -1,0 +1,89 @@
+
+{% block search_bar %}
+
+
+<section>
+  <form action="{% url 'property_home' %}" method="post" accept-charset="UTF-8">
+  {% csrf_token %}
+  <div class="row columns">
+    <div class="column is-one-sixth">
+      <div class="field" name="property_type">
+      <p class="control has-icons-left">
+        <span class="select">
+          <select name="property_type">
+            <option selected>Property Type</option>
+            <option name="unit">Unit</option>
+            <option>House</option>
+            <option>Town House</option>
+            <option>Villa</option>
+          </select>
+        </span>
+      </p>
+      </div>
+    </div>
+
+    <div class="column is-one-sixth">
+
+      <div class="field">
+      <p class="control has-icons-left">
+        <span class="select">
+          <select name="loc_option">
+            <option selected>City</option>
+            <option>State</option>
+          </select>
+        </span>
+      </p>
+      </div>
+    </div>
+
+    <div class="column is-one-sixth">
+      <div class="field has-addons">
+        <p class="control">
+          <input class="input" type="text" name="location" placeholder="Location">
+        </p>
+      </div>
+    </div>
+
+    <div class="column is-one-sixth">
+      <div class="field has-addons">
+        <p class="control">
+          <span class="select">
+            <select>
+              <option>$</option>
+            </select>
+          </span>
+        </p>
+        <p class="control">
+          <input class="input" type="text" name="starting_budget" placeholder="Starting Budget">
+        </p>
+      </div>
+    </div>
+
+    <div class="column is-one-sixth">
+      <div class="field has-addons">
+        <p class="control">
+          <span class="select">
+            <select>
+              <option>$</option>
+            </select>
+          </span>
+        </p>
+        <p class="control">
+          <input class="input" type="text" name="ending_budget" placeholder="Ending Budget">
+        </p>
+      </div>
+    </div>
+
+    <div class="column is-one-sixth">
+      <div class="field is-grouped">
+        <p class="control">
+          <button class="button is-primary" type="submit">Search</button>
+        </p>
+      </div>
+    </div>
+    </form>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- Property display section -->
+  <section>
+    <div class="row columns">
+      {% for property in properties %}
+        {% if properties|length > 2 %}
+        <div class="column is-one-third">
+        {% elif properties|length == 2 %}
+        <div class="column is-half">
+        {% else %}
+        <div class="column is-full">
+        {% endif %}
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-2by1">
+                <img src="http://localhost:8000/{{ property.get_all_images.0.file }}">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                  <div class="media-content">
+                      <p class="title is-4">{{ property.name }}</p>
+                  </div>
+              </div>
+              <div class="content">
+                  {{ property.summary }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </section>
+  <!-- End property display section -->
+{% endblock content %}

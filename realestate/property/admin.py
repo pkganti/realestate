@@ -4,19 +4,19 @@ from __future__ import unicode_literals
 from django.contrib import admin
 from django.conf import settings
 
-from .forms import PropertyForm
-from .models import Property, PropertyType, Location, Image
+from .forms import PropertyAdminForm
+from .models import Property, Image
 
 # Register your models here.
 
-
 class ImageInline(admin.StackedInline):
     model = Image
-    extra = 0
+    extra = 3
 
 
 class PropertyAdmin(admin.ModelAdmin):
-    form = PropertyForm
+
+    form = PropertyAdminForm
     inlines = [ImageInline]
 
     def save_model(self, request, obj, form, change):
